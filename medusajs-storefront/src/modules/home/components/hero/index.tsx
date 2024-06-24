@@ -1,32 +1,34 @@
 import { Github } from "@medusajs/icons"
 import { Button, Heading } from "@medusajs/ui"
+import nrhead from './nrhead.png'; // Importing the image
+
 
 const Hero = () => {
   return (
-    <div className="h-[75vh] w-full border-b border-ui-border-base relative bg-ui-bg-subtle">
+    <div className="h-[93vh] w-full bg-cover relative bg-stone-900 bg-[url('https://i.ibb.co/TMqH6Cy/Desktop-5.png')]">
       <div className="absolute inset-0 z-10 flex flex-col justify-center items-center text-center small:p-32 gap-6">
         <span>
-          <Heading
-            level="h1"
-            className="text-3xl leading-10 text-ui-fg-base font-normal"
-          >
-            Well done! You have successfully deployed your Medusa store on Railway!
-          </Heading>
-          <Heading
+        <div>
+          <img
+            src="https://i.ibb.co/yNPFGjv/nrhead.png"
+            alt="nrhead"
+            className="w-full h-full py-16"
+          />
+        </div>
+          {/* <Heading
             level="h2"
-            className="text-3xl leading-10 text-ui-fg-subtle font-normal"
+            className="text-3xl leading-10 text-white font-normal"
           >
-            Need help customizing your store?
-          </Heading>
+            No Relation
+          </Heading> */}
         </span>
         <a
-          href="https://funkyton.com/tutorial-customize-your-medusajs-webshop-storefron/"
-          target="_blank"
-        >
-          <h1 style={{ textDecoration: "underline" }}>
-            Visit the tutorial
-          </h1>
+          href="/store"
+          className=" animate-pulse  text-xl-semi leading-10 text-white font-normal hover:border-b border-radius-10 text-center justify-center" style={{ textShadow: "0 0 10px rgba(255, 255, 255, 0.8)" }} >
+            Shop→
+          
         </a>
+        
       </div>
     </div>
   )

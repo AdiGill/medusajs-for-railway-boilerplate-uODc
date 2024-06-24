@@ -18,19 +18,21 @@ const StoreTemplate = ({
   const pageNumber = page ? parseInt(page) : 1
 
   return (
-    <div className="flex flex-col small:flex-row small:items-start py-6 content-container">
-      <RefinementList sortBy={sortBy || "created_at"} />
-      <div className="w-full">
-        <div className="mb-8 text-2xl-semi">
-          <h1>All products</h1>
+    <div className="bg-stone-900 w-full h-screen bg-[url('https://i.ibb.co/TMqH6Cy/Desktop-5.png')]">
+      <div className=" flex flex-col small:flex-row small:items-start py-16 content-container">
+        {/* <RefinementList sortBy={sortBy || "created_at"} /> */}
+        <div className="w-full text-center">
+          <div className="mb-8 text-5xl text-white "style={{ textShadow: "0 0 10px rgba(255, 255, 255, 0.75)" }}>
+            <h1>SHOP</h1>
+          </div>
+          <Suspense fallback={<SkeletonProductGrid />}>
+            <PaginatedProducts
+              sortBy={sortBy || "created_at"}
+              page={pageNumber}
+              countryCode={countryCode}
+            />
+          </Suspense>
         </div>
-        <Suspense fallback={<SkeletonProductGrid />}>
-          <PaginatedProducts
-            sortBy={sortBy || "created_at"}
-            page={pageNumber}
-            countryCode={countryCode}
-          />
-        </Suspense>
       </div>
     </div>
   )

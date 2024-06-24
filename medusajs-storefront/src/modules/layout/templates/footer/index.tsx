@@ -10,24 +10,24 @@ export default async function Footer() {
   const { product_categories } = await getCategoriesList(0, 6)
 
   return (
-    <footer className="border-t border-ui-border-base w-full">
+    <footer className=" w-full bg-stone-900">
       <div className="content-container flex flex-col w-full">
-        <div className="flex flex-col gap-y-6 xsmall:flex-row items-start justify-between py-40">
+        <div className="flex flex-col gap-y-6 xsmall:flex-row  justify-between py-16">
           <div>
             <LocalizedClientLink
               href="/"
-              className="txt-compact-xlarge-plus text-ui-fg-subtle hover:text-ui-fg-base uppercase"
+              className="txt-xlarge text-white hover:text-red-300 uppercase"
             >
-              Medusa Store
+              <img src="https://i.ibb.co/MBt21jY/logo.png" className=""/>
             </LocalizedClientLink>
           </div>
-          <div className="text-small-regular gap-10 md:gap-x-16 grid grid-cols-2 sm:grid-cols-3">
-            {product_categories && product_categories?.length > 0 && (
+          <div className="text-small-regular gap-10 md:gap-x-16 grid">
+            {/* {product_categories && product_categories?.length > 0 && (
               <div className="flex flex-col gap-y-2">
-                <span className="txt-small-plus txt-ui-fg-base">
+                <span className="txt-small-plus text-red-400">
                   Categories
                 </span>
-                <ul className="grid grid-cols-1 gap-2">
+                <ul className="grid grid-cols-1 gap-2" data-testid="footer-categories">
                   {product_categories?.slice(0, 6).map((c) => {
                     if (c.parent_category) {
                       return
@@ -42,7 +42,7 @@ export default async function Footer() {
 
                     return (
                       <li
-                        className="flex flex-col gap-2 text-ui-fg-subtle txt-small"
+                        className="flex flex-col gap-2 text-white txt-small"
                         key={c.id}
                       >
                         <LocalizedClientLink
@@ -51,6 +51,7 @@ export default async function Footer() {
                             children && "txt-small-plus"
                           )}
                           href={`/categories/${c.handle}`}
+                          data-testid="category-link"
                         >
                           {c.name}
                         </LocalizedClientLink>
@@ -60,8 +61,9 @@ export default async function Footer() {
                               children.map((child) => (
                                 <li key={child.id}>
                                   <LocalizedClientLink
-                                    className="hover:text-ui-fg-base"
+                                    className="hover:text-red-200"
                                     href={`/categories/${child.handle}`}
+                                    data-testid="category-link"
                                   >
                                     {child.name}
                                   </LocalizedClientLink>
@@ -74,15 +76,15 @@ export default async function Footer() {
                   })}
                 </ul>
               </div>
-            )}
-            {collections && collections.length > 0 && (
-              <div className="flex flex-col gap-y-2">
-                <span className="txt-small-plus txt-ui-fg-base">
+            )} */}
+            {/* {collections && collections.length > 0 && (
+              <div className="flex flex-col gap-y-2 text-right">
+                <span className="txt-small-plus text-white">
                   Collections
                 </span>
                 <ul
                   className={clx(
-                    "grid grid-cols-1 gap-2 text-ui-fg-subtle txt-small",
+                    "grid grid-cols-1 gap-2 text-gray-500 txt-small",
                     {
                       "grid-cols-2": (collections?.length || 0) > 3,
                     }
@@ -91,7 +93,7 @@ export default async function Footer() {
                   {collections?.slice(0, 6).map((c) => (
                     <li key={c.id}>
                       <LocalizedClientLink
-                        className="hover:text-ui-fg-base"
+                        className="hover:text-red-200"
                         href={`/collections/${c.handle}`}
                       >
                         {c.title}
@@ -100,39 +102,40 @@ export default async function Footer() {
                   ))}
                 </ul>
               </div>
-            )}
-            <div className="flex flex-col gap-y-2">
-              <span className="txt-small-plus txt-ui-fg-base">Medusa</span>
-              <ul className="grid grid-cols-1 gap-y-2 text-ui-fg-subtle txt-small">
+            )} */}
+            <div className="flex flex-col gap-y-2 text-right items-end ml-auto">
+              <span className="txt-large-plus text-gray-400">Socials</span>
+              <ul className="grid grid-cols-1 gap-y-2 text-white txt-small">
                 <li>
                   <a
-                    href="https://github.com/medusajs"
+                    href="https://www.instagram.com/no.relation._/"
                     target="_blank"
                     rel="noreferrer"
-                    className="hover:text-ui-fg-base"
+                    className="hover:text-red-300"
                   >
-                    GitHub
+                    Instagram
                   </a>
                 </li>
                 <li>
                   <a
-                    href="https://docs.medusajs.com"
+                    href="https://www.tiktok.com/@norelation_?lang=en"
                     target="_blank"
                     rel="noreferrer"
-                    className="hover:text-ui-fg-base"
+                    className="hover:text-red-300"
                   >
-                    Documentation
+                    TikTok
                   </a>
                 </li>
                 <li>
                   <a
-                    href="https://github.com/medusajs/nextjs-starter-medusa"
+                    href="mailto:norelation@gmail.com"
                     target="_blank"
                     rel="noreferrer"
-                    className="hover:text-ui-fg-base"
+                    className="hover:text-red-300"
                   >
-                    Source code
+                    Email
                   </a>
+                  
                 </li>
               </ul>
             </div>
@@ -140,7 +143,7 @@ export default async function Footer() {
         </div>
         <div className="flex w-full mb-16 justify-between text-ui-fg-muted">
           <Text className="txt-compact-small">
-            © {new Date().getFullYear()} Medusa Store. All rights reserved.
+            © {new Date().getFullYear()} No Relation. All rights reserved.
           </Text>
           <MedusaCTA />
         </div>
