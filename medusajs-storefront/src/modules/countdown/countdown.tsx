@@ -1,11 +1,12 @@
-// src/modules/countdown/countdown.tsx
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import dynamic from 'next/dynamic';
 
-// Make CountdownTimer a client-side only component
-const CountdownTimer: React.FC<{ targetDate: string }> = ({ targetDate }) => {
+interface CountdownTimerProps {
+  targetDate: string;
+}
+
+const CountdownTimer: React.FC<CountdownTimerProps> = ({ targetDate }) => {
   const calculateTimeLeft = () => {
     const difference = +new Date(targetDate) - +new Date();
     let timeLeft: { [key: string]: number } = {};
@@ -64,5 +65,4 @@ const CountdownTimer: React.FC<{ targetDate: string }> = ({ targetDate }) => {
   );
 };
 
-// Export the component with dynamic import and disable SSR
-export default dynamic(() => Promise.resolve(CountdownTimer), { ssr: false });
+export default CountdownTimer;
