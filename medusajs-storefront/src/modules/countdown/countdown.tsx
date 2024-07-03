@@ -1,56 +1,48 @@
-// components/CountdownTimer.tsx
 "use client"
 import React, { useState, useEffect } from 'react';
 
-interface CountdownTimerProps {
-  targetDate: string;
-}
+const CountdownTimer: React.FC = () => {
+  const [countdown, setCountdown] = useState<string>('');
 
-const CountdownTimer: React.FC<CountdownTimerProps> = ({ targetDate }) => {
-  const [timeLeft, setTimeLeft] = useState<{ [key: string]: number }>({});
-
-  const calculateTimeLeft = () => {
-    const difference = +new Date(targetDate) - +new Date();
-    let timeLeft = {};
-
-    if (difference > 0) {
-      timeLeft = {
-        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-        minutes: Math.floor((difference / 1000 / 60) % 60),
-        seconds: Math.floor((difference / 1000) % 60),
-      };
-    }
-
-    return timeLeft;
-  };
-
+  // Set the date we're counting down to
+  const countDownDate = new Date('Nov 2, 2024 13:43:00').getTime();
+  
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setTimeLeft(calculateTimeLeft());
+    const intervalId = setInterval(() => {
+      // Get today's date and time
+      const now = new Date().getTime();
+      
+      // Find the distance between now and the count down date
+      const distance = countDownDate - now;
+      
+      // Time calculations for days, hours, minutes and seconds
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      
+      // Format the countdown string
+      const countdownString = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+      
+      // Update state to trigger re-render
+      setCountdown(countdownString);
+      
+      // If the count down is over, clear the interval
+      if (distance < 0) {
+        clearInterval(intervalId);
+        setCountdown('EXPIRED');
+        // Example: Redirect on expiration
+        // window.location.href = logoutUrl;
+      }
     }, 1000);
-
-    return () => clearTimeout(timer);
-  }, [timeLeft]);
+    
+    // Cleanup interval on unmount
+    return () => clearInterval(intervalId);
+  }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center p-4 rounded-lg">
-      <span className="text-4xl font-semi-bold tracking-widest text-white pb-8">
-        01 - Inauguration
-      </span>
-      <div className="w-full border-t border-white"></div>
-      <div className="text-4xl font-medium text-white my-2 py-10 text-center">
-        {Object.keys(timeLeft).length ? (
-          Object.keys(timeLeft).map(interval => (
-            <span key={interval} className="mx-1">
-              {timeLeft[interval]} {interval}{' '}
-            </span>
-          ))
-        ) : (
-          <span>Time's up!</span>
-        )}
-      </div>
-      <div className="w-full border-t border-white"></div>
+    <div className="countdown">
+      <p id="demo">{countdown}</p>
     </div>
   );
 };

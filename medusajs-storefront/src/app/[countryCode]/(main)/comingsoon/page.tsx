@@ -1,15 +1,17 @@
 import dynamic from 'next/dynamic';
 import React from 'react';
+import Countdown from '@modules/countdown/countdown';
 
-const CountdownTimer = dynamic(() => import('@modules/countdown/countdown'), { ssr: false });
 
-const CountdownPage: React.FC = () => {
-  const saleEndDate = '2024-07-20T00:00:00';
-  return (
-    <div className="flex flex-col items-center justify-center h-screen bg-stone-900 bg-[url('https://i.ibb.co/TMqH6Cy/Desktop-5.png')]">
-        <CountdownTimer targetDate={saleEndDate} />
-    </div>
-  );
-};
-
-export default CountdownPage;
+const App: React.FC = () => {
+    const targetDate = new Date('2024-12-31T00:00:00');
+    
+    return (
+      <div>
+        <h1>Countdown to {targetDate.toLocaleString()}</h1>
+        <Countdown/>
+      </div>
+    );
+  };
+  
+  export default App;
