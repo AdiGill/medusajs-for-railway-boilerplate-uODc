@@ -14,15 +14,15 @@ const CartTemplate = ({
   customer: Omit<Customer, "password_hash"> | null
 }) => {
   return (
-    <div className="py-12">
+    <div className="py-12 h-screen bg-stone-900  bg-[url('https://i.ibb.co/TMqH6Cy/Desktop-5.png')]">
       <div className="content-container">
         {cart?.items.length ? (
           <div className="grid grid-cols-1 small:grid-cols-[1fr_360px] gap-x-40">
-            <div className="flex flex-col bg-white py-6 gap-y-6">
+            <div className="flex flex-col py-6 gap-y-6">
               {!customer && (
                 <>
-                  <SignInPrompt />
-                  <Divider />
+                  {/* <SignInPrompt /> */}
+                  {/* <Divider /> */}
                 </>
               )}
               <ItemsTemplate region={cart?.region} items={cart?.items} />
@@ -31,7 +31,7 @@ const CartTemplate = ({
               <div className="flex flex-col gap-y-8 sticky top-12">
                 {cart && cart.region && (
                   <>
-                    <div className="bg-white py-6">
+                    <div className="py-6">
                       <Summary cart={cart} />
                     </div>
                   </>

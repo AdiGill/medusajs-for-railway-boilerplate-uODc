@@ -23,7 +23,7 @@ const Hero = () => {
           </Heading> */}
         </span>
         <a
-          href="/store"
+          href="/comingsoon"
           className=" animate-pulse  text-xl-semi leading-10 text-white font-normal hover:border-b border-radius-10 text-center justify-center" style={{ textShadow: "0 0 10px rgba(255, 255, 255, 0.8)" }} >
             Shop→
           

@@ -79,7 +79,7 @@ const CartDropdown = ({
       <Popover className="relative h-full">
         <Popover.Button className="h-full">
           <LocalizedClientLink
-            className="hover:text-ui-fg-base"
+            className="hover:text-red-300"
             href="/cart"
           >{`Cart (${totalItems})`}</LocalizedClientLink>
         </Popover.Button>
@@ -177,12 +177,12 @@ const CartDropdown = ({
                   </div>
                   <span>Your shopping bag is empty.</span>
                   <div>
-                    <LocalizedClientLink href="/store">
+                    {/* <LocalizedClientLink href="/store">
                       <>
                         <span className="sr-only">Go to all products page</span>
                         <Button onClick={close}>Explore products</Button>
                       </>
-                    </LocalizedClientLink>
+                    </LocalizedClientLink> */}
                   </div>
                 </div>
               </div>

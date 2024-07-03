@@ -11,7 +11,7 @@ export default async function PreviewPrice({ price }: { price: PriceType }) {
         </Text>
       )}
       <Text
-        className={clx("text-gray-400", {
+        className={clx("text-gray-400 ", {
           "text-ui-fg-interactive": price.price_type === "sale",
         })}
       >
