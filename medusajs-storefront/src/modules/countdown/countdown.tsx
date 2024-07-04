@@ -5,7 +5,7 @@ const CountdownTimer: React.FC = () => {
   const [countdown, setCountdown] = useState<string>('');
 
   // Set the date we're counting down to
-  const countDownDate = new Date('Nov 2, 2024 13:43:00').getTime();
+  const countDownDate = new Date('Jul 20, 2024 00:00:00').getTime();
   
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -22,7 +22,7 @@ const CountdownTimer: React.FC = () => {
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
       
       // Format the countdown string
-      const countdownString = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+      const countdownString = `${days} : ${hours} : ${minutes} : ${seconds}`;
       
       // Update state to trigger re-render
       setCountdown(countdownString);
@@ -41,9 +41,17 @@ const CountdownTimer: React.FC = () => {
   }, []);
 
   return (
-    <div className="countdown">
-      <p id="demo">{countdown}</p>
+    <>
+  <div className="flex flex-col justify-center items-center w-auto text-center">
+    <div className="flex items-center w-full">
+      <div className="flex-grow border-t border-2 border-gray-400"></div>
+      <p className="text-white small:text-8xl text-3xl font-light tracking-widest whitespace-pre leading-loose mx-4 inline-block">{countdown}</p>
+      <div className="flex-grow border-t border-2 border-gray-400"></div>
     </div>
+  </div>
+  </>
+
+
   );
 };
 
