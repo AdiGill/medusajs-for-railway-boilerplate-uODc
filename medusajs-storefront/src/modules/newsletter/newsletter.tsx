@@ -53,20 +53,22 @@ const NewsletterForm: React.FC = () => {
         Sign up for updates/news
       </div>
       <form onSubmit={handleSubmit} className="flex flex-col items-center">
-        <input 
-          type="text"
-          placeholder="Enter your first name"
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-          className="border border-dashed border-stone-500 text-center bg-stone-900 p-2 text-stone-300 rounded-lg focus:outline-none focus:border-red-400 w-full mb-4"
-        />
-        <input
-          type="text"
-          placeholder="Enter your last name"
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-          className="border border-dashed border-stone-500 text-center bg-stone-900 p-2 text-stone-300 rounded-lg focus:outline-none focus:border-red-400 w-full mb-4"
-        />
+        <div className='flex flex-row'>
+          <input 
+            type="text"
+            placeholder="Enter your first name"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            className="border border-dashed border-stone-500 text-center bg-stone-900 p-2 text-stone-300 rounded-lg focus:outline-none focus:border-red-400 w-full mb-4"
+          />
+          <input
+            type="text"
+            placeholder="Enter your last name"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            className="border border-dashed border-stone-500 text-center bg-stone-900 p-2 text-stone-300 rounded-lg focus:outline-none focus:border-red-400 w-full mb-4"
+          />
+        </div>
         <input
           type="email"
           placeholder="Enter your email"
