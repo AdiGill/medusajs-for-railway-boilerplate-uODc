@@ -128,7 +128,7 @@ export default async function Footer() {
                 </li>
                 <li>
                   <a
-                    href="mailto:norelation@gmail.com"
+                    href="mailto:admin@norelation.ca"
                     target="_blank"
                     rel="noreferrer"
                     className="hover:text-red-300"
