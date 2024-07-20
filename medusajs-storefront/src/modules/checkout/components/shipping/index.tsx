@@ -64,7 +64,7 @@ const Shipping: React.FC<ShippingProps> = ({
   }, [isOpen])
 
   return (
-    <div className="backdrop-blur-sm">
+    <div className="">
       <div className="flex flex-row items-center justify-between mb-6 text-white">
         <Heading
           level="h2"
@@ -135,7 +135,7 @@ const Shipping: React.FC<ShippingProps> = ({
                   )
                 })
               ) : (
-                <div className="flex flex-col items-center justify-center px-4 py-8 text-ui-fg-base">
+                <div className="flex flex-col items-center justify-center px-4 py-8 text-white">
                   <Spinner />
                 </div>
               )}
@@ -158,11 +158,11 @@ const Shipping: React.FC<ShippingProps> = ({
         <div>
           <div className="text-small-regular">
             {cart && cart.shipping_methods.length > 0 && (
-              <div className="flex flex-col w-1/3">
-                <Text className="txt-medium-plus text-ui-fg-base mb-1">
+              <div className="flex flex-col w-1/2">
+                <Text className="txt-medium-plus text-white">
                   Method
                 </Text>
-                <Text className="txt-medium text-ui-fg-subtle">
+                <Text className="txt-medium text-gray-400">
                   {cart.shipping_methods[0].shipping_option.name} (
                   {formatAmount({
                     amount: cart.shipping_methods[0].price,

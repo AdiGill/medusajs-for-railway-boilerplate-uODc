@@ -122,6 +122,7 @@ const StripePaymentButton = ({
   return (
     <>
       <Button
+        className="bg-stone-900"
         disabled={disabled || notReady}
         onClick={handlePayment}
         size="large"
