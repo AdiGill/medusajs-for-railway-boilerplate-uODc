@@ -32,7 +32,7 @@ const ProductTabs = ({ product }: ProductTabsProps) => {
         {tabs.map((tab, i) => (
           <Accordion.Item
             key={i}
-            title={<span className="text-white">{tab.label}</span>} // Apply Tailwind color class here
+            title={tab.label} // Apply Tailwind color class here
             headingSize="medium"
             value={tab.label}
             color="white"
