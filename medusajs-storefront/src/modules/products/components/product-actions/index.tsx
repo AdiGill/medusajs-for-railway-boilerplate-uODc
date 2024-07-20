@@ -125,7 +125,7 @@ export default function ProductActions({
 
   return (
     <>
-      <div className="flex flex-col gap-y-2 text-red-700" ref={actionsRef}>
+      <div className="flex flex-col gap-y-2 py-10 text-white" ref={actionsRef}>
         <div>
           {product.variants.length > 1 && (
             <div className="flex flex-col gap-y-4">
@@ -152,7 +152,7 @@ export default function ProductActions({
           onClick={handleAddToCart}
           disabled={!inStock || !variant}
           variant="secondary"
-          className="w-full h-10"
+          className="w-full h-10 bg-opacity-20"
           isLoading={isAdding}
         >
           {!variant

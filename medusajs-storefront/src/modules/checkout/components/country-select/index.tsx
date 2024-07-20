@@ -31,6 +31,7 @@ const CountrySelect = forwardRef<
 
   return (
     <NativeSelect
+      className="bg-white"
       ref={innerRef}
       placeholder={placeholder}
       defaultValue={defaultValue}

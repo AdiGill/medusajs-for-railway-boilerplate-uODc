@@ -51,7 +51,7 @@ const Payment = ({
         },
       },
       classes: {
-        base: "pt-3 pb-1 block w-full h-11 px-4 mt-0 bg-ui-bg-field border rounded-md appearance-none focus:outline-none focus:ring-0 focus:shadow-borders-interactive-with-active border-ui-border-base hover:bg-ui-bg-field-hover transition-all duration-300 ease-in-out",
+        base: "pt-3 pb-1 block w-full h-11 px-4 mt-0 bg-ui-bg-field border rounded-md appearance-none focus:outline-none focus:ring-0 focus:shadow-borders-interactive-with-active border-ui-border-base bg-none rounded-md hover:bg-none transition-all duration-300 ease-in-out",
       },
     }
   }, [])
@@ -88,11 +88,17 @@ const Payment = ({
   }
 
   const handleSubmit = () => {
-    setIsLoading(true)
+    // setIsLoading(true)
     router.push(pathname + "?" + createQueryString("step", "review"), {
       scroll: false,
     })
+    
   }
+  useEffect(() => {
+    if (cart?.total === 0) {
+      handleSubmit()
+    }
+  }, [cart?.total])
 
   useEffect(() => {
     setIsLoading(false)
@@ -100,8 +106,8 @@ const Payment = ({
   }, [isOpen])
 
   return (
-    <div className="bg-white">
-      <div className="flex flex-row items-center justify-between mb-6">
+    <div className="">
+      <div className="flex flex-row items-center justify-between mb-6 text-white">
         <Heading
           level="h2"
           className={clx(

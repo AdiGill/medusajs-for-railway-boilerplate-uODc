@@ -29,12 +29,12 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
 
   return (
     <>
-      <div className="content-container flex flex-col small:flex-row small:items-start py-6 relative h-screen w-screen bg-stone-900">
-        <div className="flex flex-col small:sticky small:top-48 small:py-0 small:max-w-[300px] w-full py-8 gap-y-6">
+      <div className="content-container flex flex-col small:flex-row small:items-start py-6 relative h-full ">
+        <div className="flex flex-col small:sticky small:top-48 small:py-0 small:max-w-[300px] h-full w-full py-8 gap-y-6">
           <ProductInfo product={product} />
           <ProductTabs product={product} />
         </div>
-        <div className="block w-full relative">
+        <div className="block w-full relative h-full">
           <ImageGallery images={product?.images || []} />
         </div>
         <div className="flex flex-col small:sticky small:top-48 small:py-0 small:max-w-[300px] w-full py-8 gap-y-12 text-white">

@@ -84,7 +84,7 @@ const ShippingAddress = ({
           <AddressSelect addresses={customer.shipping_addresses} cart={cart} />
         </Container>
       )}
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-2 gap-4 " >
         <Input
           label="First name"
           name="shipping_address.first_name"
@@ -148,7 +148,7 @@ const ShippingAddress = ({
           onChange={handleChange}
         />
       </div>
-      <div className="my-8">
+      <div className="my-8 text-white">
         <Checkbox
           label="Same as billing address"
           name="same_as_billing"

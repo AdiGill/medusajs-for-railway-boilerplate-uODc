@@ -11,7 +11,7 @@ export const paymentInfoMap: Record<
   { title: string; icon: React.JSX.Element }
 > = {
   stripe: {
-    title: "Credit card",
+    title: "Credit/Debit",
     icon: <CreditCard />,
   },
   "stripe-ideal": {

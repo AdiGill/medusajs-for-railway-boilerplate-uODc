@@ -57,7 +57,7 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
 
   return (
     <div className="w-full flex flex-col">
-      <div className="txt-medium">
+      <div className="txt-medium text-white">
         {gift_cards.length > 0 && (
           <div className="flex flex-col mb-4">
             <Heading className="txt-medium">Gift card(s) applied:</Heading>

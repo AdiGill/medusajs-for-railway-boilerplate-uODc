@@ -83,6 +83,7 @@ const BillingAddress = ({
           autoComplete="organization"
         />
         <Input
+          className="bg-stone-900"
           label="Postal code"
           name="billing_address.postal_code"
           autoComplete="postal-code"
@@ -91,6 +92,7 @@ const BillingAddress = ({
           required
         />
         <Input
+          className="bg-stone-900"
           label="City"
           name="billing_address.city"
           autoComplete="address-level2"

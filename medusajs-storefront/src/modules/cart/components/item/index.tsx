@@ -46,7 +46,7 @@ const Item = ({ item, region, type = "full" }: ItemProps) => {
   }
 
   return (
-    <Table.Row className="w-full">
+    <Table.Row className="w-full bg-stone hover:bg-stone border-b-0">
       <Table.Cell className="!pl-0 p-4 w-24">
         <LocalizedClientLink
           href={`/products/${handle}`}
@@ -60,7 +60,7 @@ const Item = ({ item, region, type = "full" }: ItemProps) => {
       </Table.Cell>
 
       <Table.Cell className="text-left">
-        <Text className="txt-medium-plus text-ui-fg-base">{item.title}</Text>
+        <Text className="txt-medium-plus text-white">{item.title}</Text>
         <LineItemOptions variant={item.variant} />
       </Table.Cell>
 
@@ -113,6 +113,7 @@ const Item = ({ item, region, type = "full" }: ItemProps) => {
               <LineItemUnitPrice item={item} region={region} style="tight" />
             </span>
           )}
+          TOTAL: 
           <LineItemPrice item={item} region={region} style="tight" />
         </span>
       </Table.Cell>

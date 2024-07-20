@@ -58,10 +58,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: `${product.title} | Medusa Store`,
+    title: `${product.title} | Store`,
     description: `${product.title}`,
     openGraph: {
-      title: `${product.title} | Medusa Store`,
+      title: `${product.title} | Store`,
       description: `${product.title}`,
       images: product.thumbnail ? [product.thumbnail] : [],
     },
@@ -99,10 +99,12 @@ export default async function ProductPage({ params }: Props) {
   }
 
   return (
+    <div className="bg-stone-900 bg-[url('https://i.ibb.co/TMqH6Cy/Desktop-5.png')]">
     <ProductTemplate
       product={pricedProduct}
       region={region}
       countryCode={params.countryCode}
     />
+    </div>
   )
 }

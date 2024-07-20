@@ -64,8 +64,8 @@ const Shipping: React.FC<ShippingProps> = ({
   }, [isOpen])
 
   return (
-    <div className="bg-white">
-      <div className="flex flex-row items-center justify-between mb-6">
+    <div className="backdrop-blur-sm">
+      <div className="flex flex-row items-center justify-between mb-6 text-white">
         <Heading
           level="h2"
           className={clx(
@@ -107,7 +107,7 @@ const Shipping: React.FC<ShippingProps> = ({
                       key={option.id}
                       value={option.id}
                       className={clx(
-                        "flex items-center justify-between text-small-regular cursor-pointer py-4 border rounded-rounded px-8 mb-2 hover:shadow-borders-interactive-with-active",
+                        "flex items-center justify-between text-small-regular cursor-pointer py-4 border text-white border-white bg-red-200 bg-opacity-10 rounded-rounded px-8 mb-2 hover:shadow-sm hover:shadow-red-300",
                         {
                           "border-ui-border-interactive":
                             option.id ===
@@ -115,7 +115,7 @@ const Shipping: React.FC<ShippingProps> = ({
                         }
                       )}
                     >
-                      <div className="flex items-center gap-x-4">
+                      <div className="flex items-center gap-x-4 border-red-200">
                         <Radio
                           checked={
                             option.id ===
@@ -124,7 +124,7 @@ const Shipping: React.FC<ShippingProps> = ({
                         />
                         <span className="text-base-regular">{option.name}</span>
                       </div>
-                      <span className="justify-self-end text-ui-fg-base">
+                      <span className="justify-self-end text-white">
                         {formatAmount({
                           amount: option.amount!,
                           region: cart?.region,
@@ -146,7 +146,7 @@ const Shipping: React.FC<ShippingProps> = ({
 
           <Button
             size="large"
-            className="mt-6"
+            className="mt-6 bg-transparent hover:bg-stone-800"
             onClick={handleSubmit}
             isLoading={isLoading}
             disabled={!cart.shipping_methods[0]}

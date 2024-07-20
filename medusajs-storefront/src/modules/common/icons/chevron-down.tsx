@@ -4,7 +4,7 @@ import { IconProps } from "types/icon"
 
 const ChevronDown: React.FC<IconProps> = ({
   size = "16",
-  color = "currentColor",
+  color = "white",
   ...attributes
 }) => {
   return (
