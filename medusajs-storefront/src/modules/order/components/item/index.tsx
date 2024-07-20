@@ -13,7 +13,7 @@ type ItemProps = {
 
 const Item = ({ item, region }: ItemProps) => {
   return (
-    <Table.Row className="w-full">
+    <Table.Row className="w-full bg-stone-900 hover:bg-stone-900">
       <Table.Cell className="!pl-0 p-4 w-24">
         <div className="flex w-16">
           <Thumbnail thumbnail={item.thumbnail} size="square" />
@@ -21,14 +21,14 @@ const Item = ({ item, region }: ItemProps) => {
       </Table.Cell>
 
       <Table.Cell className="text-left">
-        <Text className="txt-medium-plus text-ui-fg-base">{item.title}</Text>
+        <Text className="txt-medium-plus text-white">{item.title}</Text>
         <LineItemOptions variant={item.variant} />
       </Table.Cell>
 
       <Table.Cell className="!pr-0">
         <span className="!pr-0 flex flex-col items-end h-full justify-center">
           <span className="flex gap-x-1 ">
-            <Text className="text-ui-fg-muted">{item.quantity}x </Text>
+            <Text className="text-white">{item.quantity}x </Text>
             <LineItemUnitPrice item={item} region={region} style="tight" />
           </span>
 
